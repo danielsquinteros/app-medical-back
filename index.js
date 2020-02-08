@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 import mongoose from 'mongoose';
+import router from './routes';
 
 const app = express();
 app.use(morgan('dev'));
@@ -22,6 +23,11 @@ app.use(express.urlencoded({ extended:true }));
 //Página STATIC
 app.use(express.static(path.join(__dirname,'public')));
 
+
+//Principal PATH ROUTES
+app.use('/api', router);
+
+//Puerto de sevidor local
 app.set('port', process.env.PORT || 3000);
 
 app.listen( app.get('port'), ()=>{
