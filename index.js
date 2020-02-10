@@ -5,10 +5,14 @@ import cors from 'cors';
 import path from 'path';
 import mongoose from 'mongoose';
 import router from './routes';
+import moment from 'moment-timezone';
 
 const app = express();
 app.use(morgan('dev'));
 app.use(cors());
+
+//Configurando la Hora de Chile
+moment().tz("America/Santiago").format();
 
 //Conexión a la base de datos
 mongoose.Promise = global.Promise;
