@@ -7,7 +7,7 @@ const agregaSchema = new Schema({
     },
     proveedor:{ 
         type: Schema.ObjectId, 
-        ref: 'proveedor',
+        ref: 'proveedore',
         required:true 
     },
     tipo_comprobante:{ 
