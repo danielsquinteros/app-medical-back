@@ -1,5 +1,6 @@
 import mongoose, {Schema} from 'mongoose';
 const proveedorSchema = new Schema({
+
     nombre: { 
         type:String,
         maxlength:50,
@@ -26,5 +27,6 @@ const proveedorSchema = new Schema({
     }
 });
 
-const Proveedor = mongoose.model('proveedor',proveedorSchema);
+const Proveedor = mongoose.model('proveedore',proveedorSchema);
+
 export default Proveedor;

@@ -1,5 +1,7 @@
 import routerx from 'express-promise-router';
 import articuloController from '../controllers/ArticuloController'
+
+//Middleware Token
 import auth from '../middlewares/auth';
 
 const router = routerx();

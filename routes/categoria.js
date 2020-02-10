@@ -1,5 +1,7 @@
 import routerx from 'express-promise-router';
 import categoriaController from '../controllers/CategoriaController';
+
+//Middleware Token
 import auth from '../middlewares/auth';
 
 const router = routerx();
