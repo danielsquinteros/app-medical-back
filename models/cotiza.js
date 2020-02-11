@@ -1,5 +1,5 @@
-import mongoose, {Schema} from 'mongoose';
-const agregaSchema = new Schema({
+import mongoose,{Schema} from 'mongoose';
+const cotizaSchema = new Schema({
     usuario:{
         type: Schema.ObjectId, 
         ref: 'usuario',
@@ -10,12 +10,7 @@ const agregaSchema = new Schema({
         ref: 'proveedore',
         required:true 
     },
-    tipo_comprobante:{ 
-        type:String,
-        maxlength:20,
-        required:true
-    },
-    num_comprobante:{ 
+    num_cotizacion:{ 
         type:String,
         maxlength:20,
         required:true
@@ -48,12 +43,12 @@ const agregaSchema = new Schema({
     }],
     estado: { 
         type:Number, 
-        default: 1
+        default:1
     },
     createdAt: { 
         type: Date, 
         default: Date.now 
     }
 });
-const Agrega = mongoose.model('agrega',agregaSchema);
-export default Agrega;
+const Cotiza = mongoose.model('cotiza',cotizaSchema);
+export default Cotiza;
