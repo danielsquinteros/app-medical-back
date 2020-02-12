@@ -14,4 +14,5 @@ router.delete('/remove', auth.verifyUsuario,categoriaController.remove);
 router.put('/activate', auth.verifyUsuario,categoriaController.activate);
 router.put('/desactivate', auth.verifyUsuario,categoriaController.desactivate);
 
+
 export default router;

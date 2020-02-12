@@ -52,8 +52,8 @@ export default{
     },
     list: async (req,res,next) => {
         try {
-            let valor = req.query.valor
-            const reg = await models.Agrega.find({$or:[ {'num_comprobante': new RegExp(valor,'i')}  ]},{createdAt:0})
+            let search = req.query.search
+            const reg = await models.Agrega.find({$or:[ {'num_comprobante': new RegExp(search,'i')}  ]},{createdAt:0})
             .populate('usuario', {nombre:1})
             .populate('proveedor', {nombre:1});
             res.status(200).json(reg);
