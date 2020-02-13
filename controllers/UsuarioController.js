@@ -48,9 +48,9 @@ export default{
     },
     update: async (req,res,next) => {
         try {
-            let passEncrypted = await bcrypt.hash(req.body.password,10)
-            const reg0 = await models.Usuario.findByIdAndUpdate({_id:req.body._id});
-            if (passEncrypted!=reg0.password){
+            let pass = req.body.password;
+            const reg0 = await models.Usuario.findOne({_id:req.body._id});
+            if (pass!=reg0.password){
                 req.body.password = await bcrypt.hash(req.body.password,10)
             }
             const reg = await models.Usuario.findByIdAndUpdate({_id:req.body._id},{
