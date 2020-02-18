@@ -16,7 +16,7 @@ async function disminuirStock(id_articulo,cantidad){
 export default{
     add: async (req,res,next) => {
         try {
-            const reg = await models.Agrega.create(req.body);
+            const reg = await models.Ingreso.create(req.body);
             //Actualizar Stock
             let detalles = req.body.detalles;
             detalles.map(function(x){
@@ -32,7 +32,7 @@ export default{
     },
     query: async (req,res,next) => {
         try {
-            const reg = await models.Agrega.findOne({_id:req.query._id})
+            const reg = await models.Ingreso.findOne({_id:req.query._id})
             .populate('usuario', {nombre:1})
             .populate('proveedor', {nombre:1});
                 if (!reg){
@@ -53,7 +53,7 @@ export default{
     list: async (req,res,next) => {
         try {
             let search = req.query.search
-            const reg = await models.Agrega.find({$or:[ {'num_comprobante': new RegExp(search,'i')}  ]},{createdAt:0})
+            const reg = await models.Ingreso.find({$or:[ {'num_comprobante': new RegExp(search,'i')}  ]},{createdAt:0})
             .populate('usuario', {nombre:1})
             .populate('proveedor', {nombre:1});
             res.status(200).json(reg);
@@ -67,7 +67,7 @@ export default{
     },
     activate: async (req,res,next) => {
         try {
-            const reg = await models.Agrega.findByIdAndUpdate({_id:req.body._id},{estado:1});
+            const reg = await models.Ingreso.findByIdAndUpdate({_id:req.body._id},{estado:1});
             //Actualizar Stock
             let detalles = reg.detalles;
             detalles.map(function(x){
@@ -83,7 +83,7 @@ export default{
     },
     desactivate: async (req,res,next) => {
         try {
-            const reg = await models.Agrega.findByIdAndUpdate({_id:req.body._id},{estado:0});
+            const reg = await models.Ingreso.findByIdAndUpdate({_id:req.body._id},{estado:0});
             //Actualizar Stock
             let detalles = reg.detalles;
             detalles.map(function(x){

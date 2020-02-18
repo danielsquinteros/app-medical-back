@@ -4,7 +4,7 @@ import categoriaRouter from './categoria';
 import articuloRouter from './articulo';
 import usuarioRouter from './usuario';
 import proveedorRouter from './proveedor';
-import agregaRouter from './agrega';
+import ingresaRouter from './ingreso';
 import cotizaRouter from './cotiza';
 
 const router = routerx();
@@ -13,7 +13,7 @@ router.use('/categoria',categoriaRouter);
 router.use('/articulo',articuloRouter);
 router.use('/usuario',usuarioRouter);
 router.use('/proveedor',proveedorRouter);
-router.use('/agrega',agregaRouter);
+router.use('/ingreso',ingresaRouter);
 router.use('/cotiza',cotizaRouter);
 
 

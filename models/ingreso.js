@@ -1,5 +1,5 @@
 import mongoose, {Schema} from 'mongoose';
-const agregaSchema = new Schema({
+const ingresoSchema = new Schema({
     usuario:{
         type: Schema.ObjectId, 
         ref: 'usuario',
@@ -44,6 +44,10 @@ const agregaSchema = new Schema({
         precio:{
             type:Number,
             required:true
+        },
+        tipo_stock: {
+            type: String,
+            required: true
         }
     }],
     estado: { 
@@ -55,5 +59,5 @@ const agregaSchema = new Schema({
         default: Date.now 
     }
 });
-const Agrega = mongoose.model('agrega',agregaSchema);
-export default Agrega;
+const Ingreso = mongoose.model('ingreso',ingresoSchema);
+export default Ingreso;

@@ -2,7 +2,7 @@ import Categoria from './categoria';
 import Articulo from './articulo';
 import Usuario from './usuario';
 import Proveedor from './proveedor';
-import Agrega from './agrega';
+import Ingreso from './ingreso';
 import Cotiza from './cotiza';
 
 export default{
@@ -10,6 +10,6 @@ export default{
     Articulo,
     Usuario,
     Proveedor,
-    Agrega,
+    Ingreso,
     Cotiza
 }
