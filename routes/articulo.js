@@ -14,5 +14,6 @@ router.delete('/remove', auth.verifyUsuario, articuloController.remove);
 router.put('/activate', auth.verifyUsuario, articuloController.activate);
 router.put('/desactivate', auth.verifyUsuario, articuloController.desactivate);
 router.put('/pending', auth.verifyUsuario, articuloController.pending);
+router.get('/queryCodigo', auth.verifyUsuario, articuloController.queryCodigo);
 
 export default router;

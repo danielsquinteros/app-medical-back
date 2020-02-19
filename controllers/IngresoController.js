@@ -53,7 +53,7 @@ export default{
     list: async (req,res,next) => {
         try {
             let search = req.query.search
-            const reg = await models.Ingreso.find({$or:[ {'num_comprobante': new RegExp(search,'i')}  ]},{createdAt:0})
+            const reg = await models.Ingreso.find({$or:[ {'num_comprobante': new RegExp(search,'i')}  ]})
             .populate('usuario', {nombre:1})
             .populate('proveedor', {nombre:1});
             res.status(200).json(reg);
