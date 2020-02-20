@@ -42,7 +42,7 @@ const articuloSchema = new Schema({
         type: Number,
         default: 1 
     },
-    fecha_vencimiento:{
+    fechaVencimiento:{
         type: Date,
         min: Date.now,
         max: '3000-01-01'

@@ -15,10 +15,6 @@ const cotizaSchema = new Schema({
         maxlength:20,
         required:true
     },
-    impuesto:{ 
-        type:Number, 
-        required:true
-    },
     total:{ 
         type:Number, 
         required:true
@@ -38,6 +34,10 @@ const cotizaSchema = new Schema({
         },
         precio:{
             type:Number,
+            required:true
+        },
+        tipo_stock:{
+            type:String,
             required:true
         }
     }],

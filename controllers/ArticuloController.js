@@ -57,7 +57,7 @@ export default{
                 precio: req.body.precio,
                 stock: req.body.stock,
                 tipo_stock: req.body.tipo_stock,
-                fecha_vencimiento: req.body.fecha_vencimiento,
+                fechaVencimiento: req.body.fechaVencimiento,
             })
             res.status(200).json(reg);
 
