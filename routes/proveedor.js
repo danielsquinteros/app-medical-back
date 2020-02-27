@@ -6,14 +6,14 @@ import auth from '../middlewares/auth';
 
 const router = routerx();
 
-router.post('/add', auth.verifyUsuario, proveedorController.add);
-router.get('/query', auth.verifyUsuario, proveedorController.query);
-router.get('/list', auth.verifyUsuario, proveedorController.list);
-router.get('/listPersonas', auth.verifyUsuario, proveedorController.listPersonas);
-router.get('/listEmpresas', auth.verifyUsuario, proveedorController.listEmpresas);
-router.put('/update', auth.verifyUsuario, proveedorController.update);
-router.delete('/remove', auth.verifyUsuario, proveedorController.remove);
-router.put('/activate', auth.verifyUsuario, proveedorController.activate);
-router.put('/desactivate', auth.verifyUsuario, proveedorController.desactivate);
+router.post('/add', auth.verifyAdministrador, proveedorController.add);
+router.get('/query', auth.verifyAdministrador, proveedorController.query);
+router.get('/list', auth.verifyAdministrador, proveedorController.list);
+router.get('/listPersonas', auth.verifyAdministrador, proveedorController.listPersonas);
+router.get('/listEmpresas', auth.verifyAdministrador, proveedorController.listEmpresas);
+router.put('/update', auth.verifyAdministrador, proveedorController.update);
+router.delete('/remove', auth.verifyAdministrador, proveedorController.remove);
+router.put('/activate', auth.verifyAdministrador, proveedorController.activate);
+router.put('/desactivate', auth.verifyAdministrador, proveedorController.desactivate);
 
 export default router;

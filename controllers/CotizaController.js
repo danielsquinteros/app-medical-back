@@ -37,7 +37,7 @@ export default{
             let search = req.query.search
             const reg = await models.Cotiza.find({$or:[ {'num_cotizacion': new RegExp(search,'i')} ]})
             .populate('usuario', {nombre:1})
-            .populate('proveedor', {nombre:1});
+            .populate('proveedor', {nombre:1, rut:1});
             res.status(200).json(reg);
 
         } catch(e){
