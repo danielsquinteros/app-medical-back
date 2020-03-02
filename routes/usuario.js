@@ -5,7 +5,7 @@ import auth from '../middlewares/auth';
 
 const router = routerx();
 
-router.post('/add', auth.verifyAdministrador ,usuarioController.add);
+router.post('/add' /*, auth.verifyAdministrador*/ ,usuarioController.add);
 router.get('/query', auth.verifyAdministrador,usuarioController.query);
 router.get('/list',auth.verifyAdministrador,usuarioController.list);
 router.put('/update', auth.verifyAdministrador,usuarioController.update);

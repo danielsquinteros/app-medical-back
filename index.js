@@ -16,10 +16,22 @@ moment().tz("America/Santiago").format();
 
 //Conexión a la base de datos
 mongoose.Promise = global.Promise;
+
 const dbUrl = 'mongodb://localhost:27017/dbmedical'
 mongoose.connect( dbUrl, {useCreateIndex:true, useNewUrlParser: true, useUnifiedTopology: true})
 .then(mongoose => console.log('Conectado a la BD en el puerto 27017'))
 .catch(err => console.log(err));
+
+/*
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://adminds:grThbimB6XCc7lZK@cluster0-ncjlo.mongodb.net/dbmedical?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("dbmedical").collection("usuarios");
+  // perform actions on the collection object
+  client.close();
+});
+*/
 
 //Middlewares JSON
 app.use(express.json());
