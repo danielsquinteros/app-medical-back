@@ -13,8 +13,7 @@ const articuloSchema = new Schema({
     nombre: {
         type: String,
         maxlength: 50,
-        unique: true,
-        required: true
+        required: true,
     },
     marca: {
         type: String,

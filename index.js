@@ -7,6 +7,10 @@ import mongoose from 'mongoose';
 import router from './routes';
 import moment from 'moment-timezone';
 
+//Importar variables de entornos locales
+const dotenv = require('dotenv');
+dotenv.config({path: '.env'});
+
 const app = express();
 app.use(morgan('dev'));
 app.use(cors());
@@ -17,21 +21,13 @@ moment().tz("America/Santiago").format();
 //Conexión a la base de datos
 mongoose.Promise = global.Promise;
 
-const dbUrl = 'mongodb://localhost:27017/dbmedical'
+
+const dbUrl = process.env.DB_URL
+
 mongoose.connect( dbUrl, {useCreateIndex:true, useNewUrlParser: true, useUnifiedTopology: true})
-.then(mongoose => console.log('Conectado a la BD en el puerto 27017'))
+.then(mongoose => console.log('Conectado a la BD'))
 .catch(err => console.log(err));
 
-/*
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://adminds:grThbimB6XCc7lZK@cluster0-ncjlo.mongodb.net/dbmedical?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("dbmedical").collection("usuarios");
-  // perform actions on the collection object
-  client.close();
-});
-*/
 
 //Middlewares JSON
 app.use(express.json());
@@ -44,8 +40,9 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use('/api', router);
 
 //Puerto de sevidor local
-app.set('port', process.env.PORT || 3000);
+app.set('host', process.env.HOST || '0.0.0.0');
+app.set('port', process.env.PORT || 5000);
 
-app.listen( app.get('port'), ()=>{
-    console.log('server on port ' + app.get('port'));
+app.listen( app.get('port'), app.get('host'), ()=>{
+    console.log('server on port ' + app.get('port') + ' ' + app.get('host'));
 });
